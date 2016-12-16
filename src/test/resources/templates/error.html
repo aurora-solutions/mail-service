@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title th:text="#{email.error.message.title}">Error Occurred</title>
+    <style>
+        * {
+            font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+        }
+        body {
+            background-color: #f7f8f9;
+            -webkit-font-smoothing: antialiased;
+            width: 100% !important;
+            -webkit-text-size-adjust: none;
+            color: #8d9aa3;
+        }
+        a {
+            color: #4781c4;
+        }
+        a:hover {
+            text-decoration: underline !important;
+        }
+        table td {
+            border: 1px solid #d2d9e1;
+            background-position: top center;
+            background-size: auto 171px;
+            background-repeat: repeat-x;
+            border-radius: 4px;
+            padding: 18px;
+        }
+        h1 {
+            margin-top: 40px;
+            margin-bottom: 60px;
+            font-weight: 500;
+            font-size: 40px;
+            text-align: center;
+            display: block;
+        }
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            color: #8d9aa3;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        img.logo {
+            float: right;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body bgcolor="#e9e9e9" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<table width="90%" height="100" cellpadding="0" cellspacing="0" border="0" style="margin:20px auto;">
+    <tr>
+        <td bgcolor="#ffffff" width="100%" style="background-color:white;">
+            <h1 th:text="#{email.error.message.greeting}"><b>Sorry !!</b></h1>
+            <p th:text="#{email.error.message.text1}"><b>An ERROR occurred due to unknown reason !</b></p>
+            <p th:text="#{email.error.message.text2}">What to do now :</p>
+            <p th:text="#{email.error.message.text3}">
+            <li style="text-align: center"> Did you remember to correctly configure your SMTP server.</li>
+            </p>
+            <p th:text="#{email.error.message.text4}">
+            <li style="text-align: center"> Check your network settings.</li>
+            </p>
+            <p th:text="#{email.signature}">- The Aurora Team </p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

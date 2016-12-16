@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title th:text="#{email.order.confirmation.title}">Order confirmation %orderNumber%</title>
+    <style>
+        * {
+            font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+        }
+        body {
+            background-color: #f7f8f9;
+            -webkit-font-smoothing: antialiased;
+            width: 100% !important;
+            -webkit-text-size-adjust: none;
+            color: #8d9aa3;
+        }
+        img.top-image {
+            display: block;
+            margin: 20px auto;
+        }
+        a {
+            color: #4781c4;
+        }
+        a:hover {
+            text-decoration: underline !important;
+        }
+        table td {
+            border: 1px solid #d2d9e1;
+            border-radius: 4px;
+            padding: 18px;
+        }
+        h1 {
+            margin-top: 40px;
+            margin-bottom: 60px;
+            font-weight: 500;
+            font-size: 40px;
+            text-align: center;
+            display: block;
+        }
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            color: #8d9aa3;
+            text-align: center;
+            word-wrap: break-word;
+            text-align: left;
+        }
+        table.order {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table.order td {
+            border: none;
+            width: 50%;
+            font-weight: 500;
+        }
+        table.order td.left {
+            color: #9ab8cd;
+            font-weight: 700;
+        }
+        table.order td.left {
+            width: 80px;
+            float: right;
+        }
+        img.logo {
+            float: right;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body bgcolor="#e9e9e9" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<table width="90%" height="100" cellpadding="0" cellspacing="0" border="0" style="margin:20px auto;">
+    <tr>
+        <td bgcolor="#ffffff" width="100%" style="background-color:white;">
+            <h1 th:text="#{email.order.confirmation.text1(${firstName})}">Thank you for your order %FIRSTNAME%,</h1>
+            <p th:text="#{email.order.confirmation.text2}">Transfer the money to the designated bankgiro so your order
+                can be processed. Here is your transaction information:</p>
+            <center>
+            <table class="order">
+                <tr>
+                    <td class="left">
+                        <h th:text="#{email.order.confirmation.text3}">Reference#:</h>
+                    </td>
+                    <td class="right">
+                        <h th:text="${referenceNumber}">%REFERENCENUMBER%</h>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        <h th:text="#{email.order.confirmation.text4}">Account#:</h>
+                    </td>
+                    <td class="right">
+                        <h th:text="#{email.order.confirmation.text5}">XXX-XXXX</h>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        <h th:text="#{email.order.confirmation.text6}">Amount:</h>
+                    </td>
+                    <td class="right">
+                        <h th:text="#{email.order.confirmation.text7(${buyOrderAmount},${currency})}">%BUYORDERAMOUNT%
+                            %CURRENCY%
+                        </h>
+                    </td>
+                </tr>
+            </table>
+            </center>
+            <p th:text="#{email.order.confirmation.text8}">If you have any questions, do not hesitate to contact us by
+                responding to this email.</p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

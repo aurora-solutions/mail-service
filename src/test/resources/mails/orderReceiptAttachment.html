@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title th:text="#{email.order.confirmation.title}">Order confirmation 608</title>
+<style type="text/css">
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-light.otf") format("opentype");
+    font-weight: 300;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-book.otf") format("opentype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-roman.otf") format("opentype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-medium.otf") format("opentype");
+    font-weight: 600;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-heavy.otf") format("opentype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-black.otf") format("opentype");
+    font-weight: 800;
+}
+
+/* Avenir italic */
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-light-oblique.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/Avenir-book-oblique.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-medium-italic.otf") format("opentype");
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-heavy-italic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: Avenir;
+    src: url("font/avenir/Avenir-black-italic.otf") format("opentype");
+    font-weight: 800;
+    font-style: italic;
+}
+* {
+    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+    margin: 0;
+    padding: 0;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    width: 100% !important;
+    -webkit-text-size-adjust: none;
+    color: #8d9aa3;
+    page-break-inside: avoid;
+    height: 1050px;
+    position: relative;
+}
+.order-container {
+    padding: 30px;
+    position: relative;
+}
+img.logo {
+    margin-top: 10px;
+}
+.user-info {
+    background-color: #f1f1f1;
+    text-align: right;
+    width: 40%;
+    max-width: 600px;
+    color: #8b8b8b;
+    float: right;
+    padding: 20px 30px;
+}
+.user-info p {
+    text-align: right;
+    font-size: 17px;
+}
+.dum-text {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #a8a8a8;
+}
+
+.order-bar {
+    border-bottom: 6px solid #e2e2e2;
+    font-size: 27px;
+    margin-top: 80px;
+}
+.order-bar h {
+    color: #8b8b8b;
+    display: inline-block;
+    width: 100%;
+}
+.order-bar h b {
+    font-weight: normal;
+    color: #5b5b5b;
+}
+.order-bar p.time {
+    text-align: right;
+    color: #759baf;
+    font-weight: normal;
+    display: inline-block;
+    width: 100%;
+    font-size: 24px;
+}
+ul.order-info {
+    margin-top: 30px;
+    list-style-type: none;
+}
+
+ul.order-info li {
+    color: #8b8b8b;
+    line-height: 60px;
+    font-size: 22px;
+}
+ul.order-info li.total {
+    text-transform: uppercase;
+    line-height: 100px;
+    border-top: 2px dotted #8b8b8b;
+    margin-top: 40px;
+    font-size: 26px;
+}
+ul.order-info li b {
+    color: #5b5b5b;
+    float: right;
+}
+ul.order-info li.total b {
+    color: #4781c4;
+}
+.site-footer {
+    background: #6d7986;
+    color: white;
+    padding: 25px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 250mm;
+}
+.site-footer ul {
+    width: 50%;
+    float: left;
+    list-style-type: none;
+}
+.site-footer ul li {
+    line-height: 40px;
+    color: white;
+}
+.site-footer ul.address li {
+    text-align: right;
+}
+@page {
+    size: A4;
+    margin: 0%;
+}
+</style>
+</head>
+<h:body>
+    <div class="order-container">
+        <div class="user-info">
+            <p th:text="${receiptName}">#{receipt.name}</p>
+            <p th:text="${receiptAddress}">#{receipt.address}</p>
+            <p th:text="#{email.order.receipt.attachment.text1(${receiptZip},${receiptCity})}">#{receipt.zip},
+                #{receipt.city}</p>
+            <p th:text="${receiptCountry}">#{receipt.country}</p>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="dum-text">Purchase Receipt</div>
+        <div class="order-bar">
+            <h>Order number: <b th:text="${orderNumber}">#{param.id}</b></h>
+            <p class="time" th:text="${receiptTimestamp}">#{receipt.timestamp}</p>
+        </div>
+        <ul class="order-info">
+            <li>
+                Amount:
+                <b>
+                    <h th:text="${receiptBtcAmount}"/>
+                </b>
+            </li>
+            <li>
+                Price:
+                <b th:text="#{email.order.receipt.attachment.text2(${receiptBtcPrice},${receiptCurrency})}">#{receipt.btcprice}
+                    #{receipt.currency}</b>
+            </li>
+            <li>
+                VAT (0%):
+                <b th:text="${receiptVat}">0 #{receipt.currency}</b>
+            </li>
+            <li>
+                Delivery address:
+                <b th:text="${receiptBtcAddress}">#{receipt.btcaddress}</b>
+            </li>
+            <li class="total">
+                Total:
+                <b>
+                    <h th:text="#{email.order.receipt.attachment.text3(${receiptTotalAmount},${receiptCurrency})}"/>
+                </b>
+            </li>
+        </ul>
+    </div>
+</h:body>
+</html>
