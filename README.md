@@ -70,6 +70,7 @@ Log files can be accessed here: `logs/mail.log`
 - Spring-Boot
 - Embedded Tomcat
 - SFL4J with LogBack for logging
+- Application can be run through Docker
 
 ###API / Libraries###
 
