@@ -46,6 +46,22 @@ Log files can be accessed here: `logs/mail.log`
 - Go to File->Open and select the pom file
 - Further actions (like running the test cases) can be performed using the IDE controls
 
+###Running in Docker Linux (Optional)###
+
+- Setup Docker
+- Open Terminal
+- Navigate to Project directory
+- Run command `sudo docker build -t mail-service .`
+- Once completed, run command `sudo docker run -t -i --name mail_service_app mail-service`
+
+###Running in Docker Windows (Optional)###
+
+- Setup Docker
+- Open Command prompt
+- Navigate to Project directory
+- Run command `docker build -t mail-service .`
+- Once completed, run command `docker run -t -i --name mail_service_app mail-service`
+
 ###Salient Features###
 
 - All Java based configurations
@@ -54,6 +70,7 @@ Log files can be accessed here: `logs/mail.log`
 - Spring-Boot
 - Embedded Tomcat
 - SFL4J with LogBack for logging
+- Application can be run through Docker
 
 ###API / Libraries###
 
